@@ -34,6 +34,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NAND_MFR_AMD		0x01
 #define NAND_MFR_MACRONIX	0xc2
 #define NAND_MFR_EON		0x92
+#define NAND_MFR_SANDISK	0x45
+#define NAND_MFR_INTEL		0x89
+#define NAND_MFR_ATO		0x9b
 
 #define LP_OPTIONS 1
 #define NAND_CI_CELLTYPE_MSK    0x0C
@@ -42,6 +45,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //Table is 'borrowed' from the Linux kernel: drivers/mtd/nandids.c
 //Copyright (C) 2002 Thomas Gleixner (tglx@linutronix.de)
 //Modified to get rid of the 16-bit devices: we don't support these.
+//http://lxr.free-electrons.com/source/drivers/mtd/nand/nand_ids.c
+
 //Name. ID code, pagesize, chipsize in MegaByte, eraseblock size, options
 const NandID::DevCodes NandID::m_devCodes[]={
 	{"NAND 1MiB 5V 8-bit",		0x6e, 256, 1, 0x1000, 0, 3},
@@ -76,12 +81,12 @@ const NandID::DevCodes NandID::m_devCodes[]={
 
 	/* 1 Gigabit */
 	{"NAND 128MiB 1,8V 8-bit",	0xA1, 0, 128, 0, LP_OPTIONS, 4},
-	{"NAND 128MiB 3,3V 8-bit",	0xF1, 0, 128, 0, LP_OPTIONS, 4},
+	{"NAND 128MiB 3,3V 8-bit",	0xF1, 0, 128, 0, LP_OPTIONS, 4},	/* Samsung K9F1G08U0C */
 	{"NAND 128MiB 3,3V 8-bit",	0xD1, 0, 128, 0, LP_OPTIONS, 4},
 
 	/* 2 Gigabit */
 	{"NAND 256MiB 1,8V 8-bit",	0xAA, 0, 256, 0, LP_OPTIONS, 5},
-	{"NAND 256MiB 3,3V 8-bit",	0xDA, 0, 256, 0, LP_OPTIONS, 5},
+	{"NAND 256MiB 3,3V 8-bit",	0xDA, 0, 256, 0, LP_OPTIONS, 5},	/* Hynix HY27UF082G2B */
 
 	/* 4 Gigabit */
 	{"NAND 512MiB 1,8V 8-bit",	0xAC, 0, 512, 0, LP_OPTIONS, 5},
